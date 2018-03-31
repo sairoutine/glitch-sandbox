@@ -11,4 +11,4 @@ canvas.addEventListener('selectstart', function (event) {
 }
 
 
-require('./init/glitch.js').default();
+require('./init/glitch.js')();
