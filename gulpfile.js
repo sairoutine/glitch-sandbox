@@ -18,7 +18,6 @@ var watch_dir = "./src/";
 
 var watch      = require('gulp-watch');
 var browserify = require('browserify');
-var stringify  = require('stringify');
 var gulp       = require('gulp');
 var source     = require('vinyl-source-stream');
 var uglify     = require("gulp-uglify");
@@ -28,12 +27,12 @@ var runSequence= require('run-sequence');
 var path       = require('path');
 var notify     = require('gulp-notify');
 var browserSync= require('browser-sync').create();
+var glslify = require('glslify');
 
 gulp.task('browserify', function() {
 	return browserify(source_file)
-		.transform(stringify, {
-			appliesTo: { includeExtensions: ['.vs', '.fs'] }, // シェーダーファイルをテキストとして require できるようにする
-		})
+		.transform(glslify)
+		// シェーダーファイルをテキストとして require できるようにする
     	.transform(babelify) // ES6 -> ES5
 		.bundle()
 		.on('error', function(err){   //ここからエラーだった時の記述
@@ -61,7 +60,7 @@ gulp.task('reload', function () {
 gulp.task('build', function(callback) {
 	return runSequence(
 		'browserify',
-		'minify',
+		//'minify',
 		'reload',
 		callback
 	);
