@@ -1,7 +1,7 @@
 const THREE = require('three/build/three.js');
 const debounce = require('js-util/debounce');
 
-import normalizeVector3 from '../modules/common/normalizeVector2';
+import normalizeVector2 from '../modules/common/normalizeVector2';
 import BackgroundImage from '../modules/sketch/glitch/BackgroundImage.js';
 import PostEffect from '../modules/sketch/glitch/PostEffect.js';
 
@@ -58,7 +58,9 @@ export default function() {
     isDrag = true;
   };
   const touchMove = (isTouched) => {
-    if (isDrag) {}
+    if (isDrag) {
+		// nothing to do
+	}
   };
   const touchEnd = (isTouched) => {
     isDrag = false;
