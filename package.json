@@ -18,5 +18,21 @@
   "bugs": {
     "url": "https://github.com/sairoutine/glitch-sandbox/issues"
   },
-  "homepage": "https://github.com/sairoutine/glitch-sandbox#readme"
+  "homepage": "https://github.com/sairoutine/glitch-sandbox#readme",
+  "devDependencies": {
+    "babelify": "6.1.1",
+    "browser-sync": "2.14.3",
+    "browserify": "12.0.1",
+    "electron-packager": "8.4.0",
+    "electron-prebuilt": "1.4.13",
+    "gulp": "3.9.1",
+    "gulp-notify": "2.2.0",
+    "gulp-plumber": "1.0.1",
+    "gulp-rename": "1.2.2",
+    "gulp-uglify": "1.5.1",
+    "gulp-watch": "4.3.11",
+    "run-sequence": "1.1.5",
+    "stringify": "5.1.0",
+    "vinyl-source-stream": "1.1.0"
+  }
 }
