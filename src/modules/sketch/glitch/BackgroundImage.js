@@ -23,7 +23,7 @@ export default class BackgroundImage {
     //video要素とそれをキャプチャするcanvas要素を生成
     const video = document.createElement('video');
 	const id = Math.floor(Math.random() * 2) + 1;
-    video.src = `/movie/movie${id}.mp4`;
+    video.src = `./movie/movie${id}.mp4`;
     video.loop = true;
     video.load();
     video.oncanplaythrough = () =>{
