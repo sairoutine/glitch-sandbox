@@ -1,4 +1,3 @@
-'use strict';
 
 // ソース元の対象ファイル
 var source_file = './src/main.js';
@@ -31,8 +30,7 @@ var glslify = require('glslify');
 
 gulp.task('browserify', function() {
 	return browserify(source_file)
-		.transform(glslify)
-		// シェーダーファイルをテキストとして require できるようにする
+		.transform(glslify) // シェーダーファイルをテキストとして require できるようにする
     	.transform(babelify) // ES6 -> ES5
 		.bundle()
 		.on('error', function(err){   //ここからエラーだった時の記述
