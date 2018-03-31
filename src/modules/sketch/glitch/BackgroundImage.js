@@ -20,6 +20,24 @@ export default class BackgroundImage {
     this.obj = null;
   }
   init(callback) {
+    //video要素とそれをキャプチャするcanvas要素を生成
+    const video = document.createElement('video');
+	const id = Math.floor(Math.random() * 2) + 1;
+    video.src = `/movie/movie${id}.mp4`;
+    video.loop = true;
+    video.load();
+    video.oncanplaythrough = () =>{
+      video.play();
+	  var videoTexture = new THREE.VideoTexture( video );
+      videoTexture.minFilter = THREE.LinearFilter;
+      videoTexture.magFilter = THREE.LinearFilter;
+      videoTexture.needsUpdate = true;
+
+	  this.uniforms.texture.value = videoTexture;
+      this.obj = this.createObj();
+      callback();
+	}
+	  /*
     const loader = new THREE.TextureLoader();
     loader.load(
       '/image/tsugu.jpg',
@@ -28,6 +46,7 @@ export default class BackgroundImage {
       this.obj = this.createObj();
       callback();
     })
+	*/
   }
   createObj() {
     return new THREE.Mesh(
