@@ -53,8 +53,8 @@ export default class BackgroundImage {
       new THREE.PlaneBufferGeometry(2, 2),
       new THREE.RawShaderMaterial({
         uniforms: this.uniforms,
-        vertexShader: glslify('../../../glsl/sketch/glitch/backgroundImage.vs'),
-        fragmentShader: glslify('../../../glsl/sketch/glitch/backgroundImage.fs'),
+        vertexShader: glslify('./glsl/backgroundImage.vs'),
+        fragmentShader: glslify('./glsl/backgroundImage.fs'),
       })
     );
   }

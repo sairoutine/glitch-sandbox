@@ -24,8 +24,8 @@ export default class PostEffect {
       new THREE.PlaneBufferGeometry(2, 2),
       new THREE.RawShaderMaterial({
         uniforms: this.uniforms,
-        vertexShader: glslify('../../../glsl/sketch/glitch/postEffect.vs'),
-        fragmentShader: glslify('../../../glsl/sketch/glitch/postEffect.fs'),
+        vertexShader: glslify('./glsl/postEffect.vs'),
+        fragmentShader: glslify('./glsl/postEffect.fs'),
       })
     );
   }
