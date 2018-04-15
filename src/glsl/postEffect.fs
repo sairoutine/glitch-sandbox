@@ -4,7 +4,6 @@ uniform float time;
 uniform vec2 resolution;
 uniform sampler2D texture;
 
-varying vec2 vUv;
 
 // #pragma glslify: snoise3 = require(glsl-noise/simplex/3d)
 // start
@@ -101,13 +100,14 @@ float snoise3(vec3 v)
   }
 // end
 
-const float interval = 3.0;
+const float interval = 2.0;
 
 float random(vec2 c){
   return fract(sin(dot(c.xy ,vec2(12.9898,78.233))) * 43758.5453);
 }
 
 void main(void){
+	vec2 vUv = gl_FragCoord.xy / resolution;
   float strength = smoothstep(interval * 0.5, interval, interval - mod(time, interval));
   vec2 shake = vec2(strength * 8.0 + 0.5) * vec2(
     random(vec2(time)) * 2.0 - 1.0,
